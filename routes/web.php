@@ -119,10 +119,11 @@ Route::post('ckeditor/upload', '\App\Http\Controllers\CKEditorController@upload'
 
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,anggota']], function () {
-	Route::get('/dashboard', '\App\Http\Controllers\DashboardController@index');
+	// Route::get('/dashboard', '\App\Http\Controllers\DashboardController@index');
 	// Route::get('/', [SubsidiBbmController::class, 'index'])->name('subsidiBbm.index');
-	Route::get('/export', [SubsidiBbmController::class, 'export'])->name('subsidiBbm.export');
-	Route::post('/import', [SubsidiBbmController::class, 'import'])->name('subsidiBbm.import');
+	Route::get('/dashboard', [SubsidiBbmController::class, 'index'])->name('dashboard');
+	Route::get('/export', [SubsidiBbmController::class, 'export'])->name('dashboard.export');
+	Route::post('/import', [SubsidiBbmController::class, 'import'])->name('dashboard.import');
 
 	Route::get('/anggota/{id}/edit', '\App\Http\Controllers\AnggotaController@edit');
 	Route::get('/my-profile', '\App\Http\Controllers\MyProfileController@index');

@@ -9,13 +9,12 @@ class SubsidiBbmsExport implements FromCollection
 {
     public function collection()
     {
-        return SubsidiBbm::select('no', 'tanggal', 'saldo')->get();
+        return SubsidiBbm::select('tanggal', 'saldo')->get();
     }
 
     public function headings(): array
     {
         return [
-            'no',
             'tanggal',
             'saldo'
         ];

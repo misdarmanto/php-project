@@ -14,7 +14,7 @@ class SubsidiBbmController extends Controller
     {
         $subsidiBbm = SubsidiBbm::all();
 
-        return view('subsidiBbm.index', compact('subsidiBbm'));
+        return view('dashboard.index', compact('subsidiBbm'));
     }
 
     public function export()
@@ -28,6 +28,6 @@ class SubsidiBbmController extends Controller
 
         Excel::import(new SubsidiBbmsImport, $file);
 
-        return redirect()->route('subsidiBbm.index')->with('success', 'Data imported successfully.');
+        return redirect()->route('dashboard')->with('success', 'Data imported successfully.');
     }
 }
